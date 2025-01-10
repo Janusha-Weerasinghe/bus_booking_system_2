@@ -33,7 +33,7 @@ exports.getBusByBusNumber = async (busNumber) => {
 
 // Add a new bus
 exports.addbus = async (busData) => {
-    const newBus = new Bus(busData);
+    const newBus = new bus(busData);
     return await newBus.save();
 };
 
