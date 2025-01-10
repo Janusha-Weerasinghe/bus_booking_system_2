@@ -1,0 +1,192 @@
+# Security Definition for Bearer Token (JWT)
+securityDefinitions:
+  BearerAuth:
+    type: apiKey
+    name: Authorization
+    in: header
+    description: "JWT Authorization using the Bearer scheme. Example: 'Authorization: Bearer {token}'"
+# Global Security Requirement (applied to all endpoints)
+security:
+  - BearerAuth: []
+  
+  paths:
+  /api/booking/trips:
+    get:
+       summary: "Fetch all trips"
+      tags:
+        - Trip
+          description: "Accessible to Admin, Operator, and Commuter roles."
+      responses:
+        200:
+          description: "List of all trips"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Trip"
+              403:
+          description: "Unauthorized or insufficient privileges"
+        404:
+          description: "No trips found"
+        500:
+          description: "Server error"
+
+    post:
+        summary: "Add a new trip"
+      tags:
+        - Trip
+      parameters:
+        - name: Trip
+          in: body
+          description: "Details of the trip to add"
+          required: true
+          schema:
+            $ref: "#/definitions/TripInput"
+            
+      responses:
+        201:
+          description: "Trip added successfully"
+          schema:
+            $ref: "#/definitions/Trip"
+        400:
+          description: "Invalid input"
+        500:
+          description: "Server error"
+
+  /api/booking/trips/{id}:
+    get:
+      description: "Get trip details by trip ID"
+      tags:
+        - Trip
+      parameters:
+        - name: id
+          in: path
+          description: "Unique identifier of the trip"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Trip details"
+          schema:
+            $ref: "#/definitions/Trip"
+        404:
+          description: "Trip not found"
+        500:
+          description: "Server error"
+
+    put:
+      description: "Update a trip"
+      tags:
+        - Trip
+      parameters:
+        - name: id
+          in: path
+          description: "Unique identifier of the trip to update"
+          required: true
+          type: string
+        - name: Trip
+          in: body
+          description: "Updated details of the trip"
+          required: true
+          schema:
+            $ref: "#/definitions/TripInput"
+      responses:
+        200:
+          description: "Trip updated successfully"
+          schema:
+            $ref: "#/definitions/Trip"
+        404:
+          description: "Trip not found"
+        500:
+          description: "Server error"
+
+    delete:
+      description: "Delete a trip"
+      tags:
+        - Trip
+      parameters:
+        - name: id
+          in: path
+          description: "Unique identifier of the trip to delete"
+          required: true
+          type: string
+      responses:
+        204:
+          description: "Trip deleted successfully"
+        404:
+          description: "Trip not found"
+        500:
+          description: "Server error"
+
+definitions:
+  Trip:
+    type: object
+    properties:
+      id:
+        type: string
+        description: "Unique identifier for the trip"
+      routeId:
+        type: string
+        description: "Route ID associated with the trip"
+      busId:
+        type: string
+        description: "Bus ID associated with the trip"
+      driverId:
+        type: string
+        description: "Driver ID of the trip"
+      conductorId:
+        type: string
+        description: "Conductor ID of the trip"
+      departureTime:
+        type: string
+        format: date-time
+        description: "Departure time of the trip"
+      arrivalTime:
+        type: string
+        format: date-time
+        description: "Arrival time of the trip"
+      availableSeats:
+        type: integer
+        description: "Available seats on the trip"
+      createdAt:
+        type: string
+        format: date-time
+        description: "Creation timestamp of the trip"
+      updatedAt:
+        type: string
+        format: date-time
+        description: "Update timestamp of the trip"
+
+  TripInput:
+    type: object
+    required:
+      - routeId
+      - busId
+      - driverId
+      - conductorId
+      - departureTime
+      - arrivalTime
+      - availableSeats
+    properties:
+      routeId:
+        type: string
+        description: "Route ID associated with the trip"
+      busId:
+        type: string
+        description: "Bus ID associated with the trip"
+      driverId:
+        type: string
+        description: "Driver ID of the trip"
+      conductorId:
+        type: string
+        description: "Conductor ID of the trip"
+      departureTime:
+        type: string
+        format: date-time
+        description: "Departure time of the trip"
+      arrivalTime:
+        type: string
+        format: date-time
+        description: "Arrival time of the trip"
+      availableSeats:
+        type: integer
+        description: "Available seats on the trip"

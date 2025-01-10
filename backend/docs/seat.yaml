@@ -1,0 +1,171 @@
+paths:
+  /api/booking/seats:
+    get:
+      description: "Fetch all seats"
+      tags:
+        - Seat
+      responses:
+        200:
+          description: "List of all seats"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Seat"
+        500:
+          description: "Server error"
+
+    post:
+      description: "Add a new seat"
+      tags:
+        - Seat
+      parameters:
+        - name: Seat
+          in: body
+          description: "Details of the seat to add"
+          required: true
+          schema:
+            $ref: "#/definitions/SeatInput"
+      responses:
+        201:
+          description: "Seat added successfully"
+          schema:
+            $ref: "#/definitions/Seat"
+        400:
+          description: "Invalid input"
+        500:
+          description: "Server error"
+
+  /api/booking/seats/{id}:
+    get:
+      description: "Get seat details by seat ID"
+      tags:
+        - Seat
+      parameters:
+        - name: id
+          in: path
+          description: "Unique identifier of the seat"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Seat details"
+          schema:
+            $ref: "#/definitions/Seat"
+        404:
+          description: "Seat not found"
+        500:
+          description: "Server error"
+
+    put:
+      description: "Update a seat"
+      tags:
+        - Seat
+      parameters:
+        - name: id
+          in: path
+          description: "Unique identifier of the seat to update"
+          required: true
+          type: string
+        - name: Seat
+          in: body
+          description: "Updated details of the seat"
+          required: true
+          schema:
+            $ref: "#/definitions/SeatInput"
+      responses:
+        200:
+          description: "Seat updated successfully"
+          schema:
+            $ref: "#/definitions/Seat"
+        404:
+          description: "Seat not found"
+        500:
+          description: "Server error"
+
+    delete:
+      description: "Delete a seat"
+      tags:
+        - Seat
+      parameters:
+        - name: id
+          in: path
+          description: "Unique identifier of the seat to delete"
+          required: true
+          type: string
+      responses:
+        204:
+          description: "Seat deleted successfully"
+        404:
+          description: "Seat not found"
+        500:
+          description: "Server error"
+
+definitions:
+  Seat:
+    type: object
+    properties:
+      id:
+        type: string
+        description: "Unique identifier for the seat"
+      seatId:
+        type: string
+        description: "Seat ID in the format YYYYMMDD_TripID_SeatNumber"
+      busId:
+        type: string
+        description: "Bus ID associated with the seat"
+      tripId:
+        type: string
+        description: "Trip ID associated with the seat"
+      seatNumber:
+        type: string
+        description: "Seat number with a maximum length of 10 characters"
+      userNIC:
+        type: string
+        description: "National ID Card number of the user"
+      phoneNumber:
+        type: string
+        description: "Phone number of the user"
+      status:
+        type: string
+        enum:
+          - Available
+          - Booked
+        description: "Current status of the seat"
+      createdAt:
+        type: string
+        format: date-time
+        description: "Timestamp of seat creation"
+
+  SeatInput:
+    type: object
+    required:
+      - seatId
+      - busId
+      - tripId
+      - seatNumber
+      - status
+    properties:
+      seatId:
+        type: string
+        description: "Seat ID in the format YYYYMMDD_TripID_SeatNumber"
+      busId:
+        type: string
+        description: "Bus ID associated with the seat"
+      tripId:
+        type: string
+        description: "Trip ID associated with the seat"
+      seatNumber:
+        type: string
+        description: "Seat number with a maximum length of 10 characters"
+      userNIC:
+        type: string
+        description: "National ID Card number of the user"
+      phoneNumber:
+        type: string
+        description: "Phone number of the user"
+      status:
+        type: string
+        enum:
+          - Available
+          - Booked
+        description: "Current status of the seat"

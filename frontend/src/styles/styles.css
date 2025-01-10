@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #0047ab;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 1rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.nav-ul {
+    padding: 10px;
+    margin: 0px;
+    background-color: #fdb940;
+  }
+  
+  .nav-ul li {
+    display: inline-block;
+  }
+  
+  .nav-ul li a {
+    color: black;
+    text-decoration: none;
+    padding: 25px;
+  }
+  
+  .brand-name {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .footer {
+    /* position: absolute; */
+    bottom: 0;
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
+    color: #fdb940;
+    background-color: black;
+  }
+  
+  .page-middle {
+    left: 0;
+    line-height: 200px;
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 40%;
+    width: 100%;
+  }
+  
+  .login-btn{
+    color: rgb(104, 85, 224);
+    background-color: #fdb940;
+    border: 1px solid rgba(104, 85, 224, 1);
+    border-radius: 8px;
+    width: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .logout-btn{
+    color: rgb(6, 6, 6);
+    background-color: #fdb940;
+    border: 1px solid rgba(104, 85, 224, 1);
+    border-radius: 8px;
+    width: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  button:hover {
+    color: white;
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+    background-color: rgba(104, 85, 224, 1);
+  }
+  
+  .username{
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+  }
