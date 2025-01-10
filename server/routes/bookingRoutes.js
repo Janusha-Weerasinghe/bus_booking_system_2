@@ -15,7 +15,7 @@ router.get('/payments',authenticateToken, checkRole(['Admin','Operator','Commute
 
 // Seats routes
 
-router.get('/seats',authenticateToken, checkRole(['Admin','Operator']),BookingController.getAllseats);
+router.get('/seats',authenticateToken, checkRole(['Admin','Operator']),BookingController.getAllSeats);
 router.post('/seats', authenticateToken, checkRole(['Admin','Operator']),BookingController.addSeat);
 router.put('/seats/:id', authenticateToken, checkRole(['Admin','Operator']),BookingController.updateSeat);
 router.delete('/seats/:id',authenticateToken, checkRole(['Admin','Operator']), BookingController.deleteSeat);

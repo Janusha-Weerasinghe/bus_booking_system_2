@@ -53,14 +53,14 @@ exports.getAllpayments = async () => {
 
 // Get all seats
 exports.getAllSeats = async () => {
-    return await seat.find()
-        .populate('busId', 'busNumber')  // Optional: Populate bus details if needed
-        .populate('tripId', 'routeId departureTime');  // Optional: Populate trip details if needed
+    return await seat.find();
+        // .populate('busId', 'busNumber')  // Optional: Populate bus details if needed
+        // .populate('tripId', 'routeId departureTime');  // Optional: Populate trip details if needed
 };
 
 // Add a new seat
 exports.addSeat = async (seatData) => {
-    const newSeat = new Seat(seatData);
+    const newSeat = new seat(seatData);
     return await newseat.save();
 };
 

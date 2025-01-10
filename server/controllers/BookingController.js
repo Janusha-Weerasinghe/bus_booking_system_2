@@ -115,9 +115,9 @@ exports.getAllpayments = async (req, res) => {
 };
 
 // Get all seats
-exports.getAllseats = async (req, res) => {
+exports.getAllSeats = async (req, res) => {
     try {
-        const seats = await BookingService.getAllseats();
+        const seats = await BookingService.getAllSeats();
         if (!seats || seats.length === 0) {
             return res.status(404).json({ success: false, message: "No seat found" });
         }
@@ -135,7 +135,8 @@ exports.addSeat = async (req, res, next) => {
         const { busId, tripId, seatNumber, userNIC, phoneNumber, status } = req.body;
 
         // Generate seatId in the format YYYYMMDD_TripID_SeatNumber
-        const date = moment().format('YYYYMMDD');  // Get current date in YYYYMMDD format
+        const currentDate = new Date();
+        const date = new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(currentDate).replace(/\//g, '');  // Format the date as YYYYMMDD
         const seatId = `${date}_${tripId}_${seatNumber}`;
 
         // Create the seat data
@@ -150,7 +151,7 @@ exports.addSeat = async (req, res, next) => {
         };
 
         // Add the seat using the SeatService
-        const newSeat = await SeatService.addSeat(seatData);
+        const newSeat = await BookingService.addSeat(seatData);
 
         // Transform MongoDB data to JSON:API compliant format
         const response = {
@@ -178,6 +179,7 @@ exports.addSeat = async (req, res, next) => {
         next(error);
     }
 };
+
 
 // Update a seat
 exports.updateSeat = async (req, res, next) => {
