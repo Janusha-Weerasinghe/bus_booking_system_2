@@ -19,7 +19,7 @@
   "paths": {
     "/booking/bookings": {
       "get": {
-        "security": [{"Bearer": []}],
+        "security": [{ "Bearer": [] }],
         "description": "Fetch all Bookings",
         "tags": ["Booking"],
         "responses": {
@@ -35,7 +35,7 @@
         }
       },
       "post": {
-        "security": [{"Bearer": []}],
+        "security": [{ "Bearer": [] }],
         "description": "Add a new Booking",
         "tags": ["Booking"],
         "parameters": [
@@ -67,7 +67,7 @@
     },
     "/booking/bookings/{id}": {
       "get": {
-        "security": [{"Bearer": []}],
+        "security": [{ "Bearer": [] }],
         "description": "Get Booking details by Booking ID",
         "tags": ["Booking"],
         "parameters": [
@@ -95,7 +95,7 @@
         }
       },
       "put": {
-        "security": [{"Bearer": []}],
+        "security": [{ "Bearer": [] }],
         "description": "Update a Booking",
         "tags": ["Booking"],
         "parameters": [
@@ -132,7 +132,7 @@
         }
       },
       "delete": {
-        "security": [{"Bearer": []}],
+        "security": [{ "Bearer": [] }],
         "description": "Delete a Booking",
         "tags": ["Booking"],
         "parameters": [
@@ -238,7 +238,7 @@
     },
     "/bus/buses": {
       "get": {
-        "security": [{"Bearer": []}],
+        "security": [{ "Bearer": [] }],
         "description": "Fetch all buses",
         "tags": ["Bus"],
         "responses": {
@@ -258,7 +258,7 @@
       },
       "post": {
         "description": "Add a new bus",
-        "security": [{"Bearer": []}],
+        "security": [{ "Bearer": [] }],
         "tags": ["Bus"],
         "parameters": [
           {
@@ -289,7 +289,7 @@
     },
     "/bus/buses/type": {
       "get": {
-        "security": [{"Bearer": []}],
+        "security": [{ "Bearer": [] }],
         "description": "Get buses by type (e.g. Luxury, Normal)",
         "tags": ["Bus"],
         "parameters": [
@@ -322,7 +322,7 @@
     },
     "/bus/buses/route": {
       "get": {
-        "security": [{"Bearer": []}],
+        "security": [{ "Bearer": [] }],
         "description": "Get buses by route",
         "tags": ["Bus"],
         "parameters": [
@@ -355,7 +355,7 @@
     },
     "/bus/buses/organization": {
       "get": {
-        "security": [{"Bearer": []}],
+        "security": [{ "Bearer": [] }],
         "description": "Get buses by organization",
         "tags": ["Bus"],
         "parameters": [
@@ -388,7 +388,7 @@
     },
     "/bus/buses/{id}": {
       "get": {
-        "security": [{"Bearer": []}],
+        "security": [{ "Bearer": [] }],
         "description": "Get bus details by bus number",
         "tags": ["Bus"],
         "parameters": [
@@ -416,7 +416,7 @@
         }
       },
       "put": {
-        "security": [{"Bearer": []}],
+        "security": [{ "Bearer": [] }],
         "description": "Update a bus",
         "tags": ["Bus"],
         "parameters": [
@@ -453,7 +453,7 @@
         }
       },
       "delete": {
-        "security": [{"Bearer": []}],
+        "security": [{ "Bearer": [] }],
         "description": "Delete a bus",
         "tags": ["Bus"],
         "parameters": [
@@ -480,11 +480,9 @@
     },
     "/bus/busroutes/by-name": {
       "get": {
-        "security": [{"Bearer": []}],
+        "security": [{ "Bearer": [] }],
         "description": "Fetch bus routes by route name",
-        "tags": [
-          "BusRoutes"
-        ],
+        "tags": ["BusRoutes"],
         "parameters": [
           {
             "name": "routeName",
@@ -515,11 +513,9 @@
     },
     "/bus/busroutes/by-location": {
       "get": {
-        "security": [{"Bearer": []}],
+        "security": [{ "Bearer": [] }],
         "description": "Fetch bus routes by start or end location",
-        "tags": [
-          "BusRoutes"
-        ],
+        "tags": ["BusRoutes"],
         "parameters": [
           {
             "name": "startLocation",
@@ -557,11 +553,9 @@
     },
     "/bus/busroutes": {
       "post": {
-        "security": [{"Bearer": []}],
+        "security": [{ "Bearer": [] }],
         "description": "Add a new bus route",
-        "tags": [
-          "BusRoutes"
-        ],
+        "tags": ["BusRoutes"],
         "parameters": [
           {
             "name": "BusRoute",
@@ -589,11 +583,9 @@
         }
       },
       "put": {
-        "security": [{"Bearer": []}],
+        "security": [{ "Bearer": [] }],
         "description": "Update an existing bus route",
-        "tags": [
-          "BusRoutes"
-        ],
+        "tags": ["BusRoutes"],
         "parameters": [
           {
             "name": "id",
@@ -631,7 +623,7 @@
 
     "/booking/seats": {
       "get": {
-        "security": [{"Bearer": []}],
+        "security": [{ "Bearer": [] }],
         "description": "Fetch all seats",
         "tags": ["Seat"],
         "responses": {
@@ -650,7 +642,7 @@
         }
       },
       "post": {
-        "security": [{"Bearer": []}],
+        "security": [{ "Bearer": [] }],
         "description": "Add a new seat",
         "tags": ["Seat"],
         "parameters": [
@@ -682,7 +674,7 @@
     },
     "/booking/seats/{id}": {
       "get": {
-        "security": [{"Bearer": []}],
+        "security": [{ "Bearer": [] }],
         "description": "Get seat details by seat ID",
         "tags": ["Seat"],
         "parameters": [
@@ -710,7 +702,7 @@
         }
       },
       "put": {
-        "security": [{"Bearer": []}],
+        "security": [{ "Bearer": [] }],
         "description": "Update a seat",
         "tags": ["Seat"],
         "parameters": [
@@ -747,7 +739,7 @@
         }
       },
       "delete": {
-        "security": [{"Bearer": []}],
+        "security": [{ "Bearer": [] }],
         "description": "Delete a seat",
         "tags": ["Seat"],
         "parameters": [
@@ -771,104 +763,105 @@
           }
         }
       }
-   },
-   "/bus/schedules": {
-    "get": {
-      "security": [{"Bearer": []}],
-      "description": "Fetch all schedules",
-      "tags": ["Schedules"],
-      "responses": {
-        "200": {
-          "description": "List of all bus schedules",
-          "schema": {
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/Schedule"
+    },
+    "/bus/schedules": {
+      "get": {
+        "security": [{ "Bearer": [] }],
+        "description": "Fetch all schedules",
+        "tags": ["Schedules"],
+        "responses": {
+          "200": {
+            "description": "List of all bus schedules",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Schedule"
+              }
+            }
+          },
+          "404": {
+            "description": "No schedules found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "post": {
+        "description": "Add a new bus schedule",
+        "tags": ["Schedules"],
+        "parameters": [
+          {
+            "name": "Schedule",
+            "in": "body",
+            "description": "Details of the bus schedule to add",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ScheduleInput"
             }
           }
-        },
-        "404": {
-          "description": "No schedules found"
-        },
-        "500": {
-          "description": "Internal server error"
+        ],
+        "responses": {
+          "201": {
+            "description": "Schedule added successfully",
+            "schema": {
+              "$ref": "#/definitions/ScheduleResponse"
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
         }
       }
     },
-    "post": {
-      "description": "Add a new bus schedule",
-      "tags": ["Schedules"],
-      "parameters": [
-        {
-          "name": "Schedule",
-          "in": "body",
-          "description": "Details of the bus schedule to add",
-          "required": true,
-          "schema": {
-            "$ref": "#/definitions/ScheduleInput"
+    "/bus/schedules/{id}": {
+      "put": {
+        "security": [{ "Bearer": [] }],
+        "description": "Update an existing bus schedule",
+        "tags": ["Schedules"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the schedule to update",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Schedule",
+            "in": "body",
+            "description": "Updated schedule details",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ScheduleInput"
+            }
           }
-        }
-      ],
-      "responses": {
-        "201": {
-          "description": "Schedule added successfully",
-          "schema": {
-            "$ref": "#/definitions/ScheduleResponse"
+        ],
+        "responses": {
+          "200": {
+            "description": "Schedule updated successfully",
+            "schema": {
+              "$ref": "#/definitions/ScheduleResponse"
+            }
+          },
+          "400": {
+            "description": "Invalid input or invalid schedule ID"
+          },
+          "404": {
+            "description": "Schedule not found"
+          },
+          "500": {
+            "description": "Internal server error"
           }
-        },
-        "400": {
-          "description": "Invalid input"
-        },
-        "500": {
-          "description": "Internal server error"
-        }
-      }
-    }
-  },
-  "/bus/schedules/{id}": {
-    "put": {
-      "security": [{"Bearer": []}],
-      "description": "Update an existing bus schedule",
-      "tags": ["Schedules"],
-      "parameters": [
-        {
-          "name": "id",
-          "in": "path",
-          "description": "ID of the schedule to update",
-          "required": true,
-          "type": "string"
-        },
-        {
-          "name": "Schedule",
-          "in": "body",
-          "description": "Updated schedule details",
-          "required": true,
-          "schema": {
-            "$ref": "#/definitions/ScheduleInput"
-          }
-        }
-      ],
-      "responses": {
-        "200": {
-          "description": "Schedule updated successfully",
-          "schema": {
-            "$ref": "#/definitions/ScheduleResponse"
-          }
-        },
-        "400": {
-          "description": "Invalid input or invalid schedule ID"
-        },
-        "404": {
-          "description": "Schedule not found"
-        },
-        "500": {
-          "description": "Internal server error"
         }
       }
     },
-  "/booking/trips": {
+    "/booking/trips": {
       "get": {
-        "security": [{"BearerAuth": []}],
+        "security": [{ "BearerAuth": [] }],
         "summary": "Fetch all trips",
         "tags": ["Trip"],
         "description": "Accessible to Admin, Operator, and Commuter roles.",
@@ -894,7 +887,7 @@
         }
       },
       "post": {
-        "security": [{"BearerAuth": []}],
+        "security": [{ "BearerAuth": [] }],
         "summary": "Add a new trip",
         "tags": ["Trip"],
         "parameters": [
@@ -926,7 +919,7 @@
     },
     "/booking/trips/{id}": {
       "get": {
-        "security": [{"BearerAuth": []}],
+        "security": [{ "BearerAuth": [] }],
         "summary": "Get trip details by trip ID",
         "tags": ["Trip"],
         "parameters": [
@@ -954,7 +947,7 @@
         }
       },
       "put": {
-        "security": [{"BearerAuth": []}],
+        "security": [{ "BearerAuth": [] }],
         "summary": "Update a trip",
         "tags": ["Trip"],
         "parameters": [
@@ -991,7 +984,7 @@
         }
       },
       "delete": {
-        "security": [{"BearerAuth": []}],
+        "security": [{ "BearerAuth": [] }],
         "summary": "Delete a trip",
         "tags": ["Trip"],
         "parameters": [
@@ -1017,7 +1010,8 @@
       }
     }
   },
-   "definitions": {
+
+  "definitions": {
     "User": {
       "type": "object",
       "required": ["NICnumber", "fullName", "email", "password", "roleID"],
@@ -1066,6 +1060,7 @@
         }
       }
     },
+
     "Booking": {
       "type": "object",
       "properties": {
@@ -1238,7 +1233,8 @@
         }
       }
     },
-   "BusRoute": {
+
+    "BusRoute": {
       "type": "object",
       "properties": {
         "id": {
@@ -1270,12 +1266,7 @@
     },
     "BusRouteInput": {
       "type": "object",
-      "required": [
-        "routeName",
-        "startLocation",
-        "endLocation",
-        "distance"
-      ],
+      "required": ["routeName", "startLocation", "endLocation", "distance"],
       "properties": {
         "routeName": {
           "type": "string",
@@ -1295,6 +1286,7 @@
         }
       }
     },
+
     "Seat": {
       "type": "object",
       "properties": {
@@ -1340,13 +1332,7 @@
     },
     "SeatInput": {
       "type": "object",
-      "required": [
-        "seatId",
-        "busId",
-        "tripId",
-        "seatNumber",
-        "status"
-      ],
+      "required": ["seatId", "busId", "tripId", "seatNumber", "status"],
       "properties": {
         "seatId": {
           "type": "string",
@@ -1378,46 +1364,8 @@
           "description": "Current status of the seat"
         }
       }
-    }
-
-  },
- "Schedule": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique identifier for the schedule"
-        },
-        "bus": {
-          "type": "string",
-          "description": "Bus associated with the schedule"
-        },
-        "route": {
-          "type": "string",
-          "description": "Route for the schedule"
-        },
-        "departureTime": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Departure time of the bus schedule"
-        },
-        "arrivalTime": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Arrival time of the bus schedule"
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Creation timestamp of the schedule"
-        },
-        "updatedAt": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Last updated timestamp of the schedule"
-        }
-      }
     },
+
     "ScheduleInput": {
       "type": "object",
       "required": ["bus", "route", "departureTime", "arrivalTime"],
@@ -1488,7 +1436,46 @@
         }
       }
     },
- "Trip": {
+
+    "Schedule": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the schedule"
+        },
+        "bus": {
+          "type": "string",
+          "description": "Bus associated with the schedule"
+        },
+        "route": {
+          "type": "string",
+          "description": "Route for the schedule"
+        },
+        "departureTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Departure time of the bus schedule"
+        },
+        "arrivalTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Arrival time of the bus schedule"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp of the schedule"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Update timestamp of the schedule"
+        }
+      }
+    },
+
+    "Trip": {
       "type": "object",
       "properties": {
         "id": {
@@ -1583,6 +1570,3 @@
     }
   }
 }
-
-  
-
