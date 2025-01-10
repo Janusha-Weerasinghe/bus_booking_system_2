@@ -43,7 +43,7 @@ exports.updateBooking = async (bookingId, updatedData) => {
 
 // Delete a booking
 exports.deleteBooking = async (bookingId) => {
-    return await seat.findByIdAndDelete(bookingId);};
+    return await booking.findByIdAndDelete(bookingId);};
 
 
 // Manage payments

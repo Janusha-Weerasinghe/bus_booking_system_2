@@ -1,8 +1,8 @@
 const express = require('express');
+const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const dotenv = require('dotenv');
 const helmet =require ('helmet');
 const cookieParser = require('cookie-parser');
 const swaggerJsDoc = require("swagger-jsdoc");
@@ -17,7 +17,7 @@ dotenv.config(); // Load environment variables
 
 const app = express();
 // const PORT = process.env.APP_RUNNING_PORT || 5000;
-
+app.set('trust proxy', true);
 
 // //Add Routes
 // app.use("/", (req, res) => {
@@ -97,19 +97,27 @@ app.use("/api/booking",bookingRoutes);
 //   console.log(`Server is running on http://localhost:${PORT}`);
 // });
 
+const uri = "mongodb+srv://janushachamaliapps:sNrsumfNCeVFWn5XJCW@cluster0.e9gay.mongodb.net/bus_booking_system";
+
+if (!uri) {
+  throw new Error("MONGODB_URI is not defined in environment variables");
+}
+
+// Connect to MongoDB
+mongoose.connect(uri)
+  .then(() => console.log('Database connected successfully'))
+  .catch((err) => console.error('Database connection error:', err));
 
 
-
-// Mongo DB Connections
-mongoose.set("strictQuery", false);
-mongoose
-  .connect(process.env.MONGO_DB_CONNECTION_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("Successfully connected to mongodb !"))
-  .catch((err) => console.log(`Error has occured: ${err}`));
-
+// // Mongo DB Connections
+// mongoose.set("strictQuery", false);
+// mongoose
+//   .connect(process.env.MONGO_DB_CONNECTION_URL, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   })
+//   .then(() => console.log("Successfully connected to mongodb !"))
+//   .catch((err) => console.log(`Error has occured: ${err}`));
 // // MongoDB Connections
 // mongoose.set("strictQuery", false);
 // mongoose

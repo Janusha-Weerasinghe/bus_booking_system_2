@@ -81,6 +81,8 @@ exports.signin = async (req, res) => {
             .json({sucess:false,message:"Invalid credintials"});
 
         }
+
+        const tokenSecret = process.env.TOKEN_SECRET || 'default_development_secret';
    const token =jwt.sign({
     userId : existingUser.id,
     email:existingUser.email,

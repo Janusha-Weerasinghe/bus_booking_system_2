@@ -33,6 +33,128 @@
             "description": "Server error"
           }
         }
+      },
+      "post": {
+        "security": [{"Bearer": []}],
+        "description": "Add a new Booking",
+        "tags": ["Booking"],
+        "parameters": [
+          {
+            "name": "Booking",
+            "in": "body",
+            "description": "Details of the Booking to add",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BookingInput"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Booking added successfully",
+            "schema": {
+              "$ref": "#/definitions/Booking"
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/booking/bookings/{id}": {
+      "get": {
+        "security": [{"Bearer": []}],
+        "description": "Get Booking details by Booking ID",
+        "tags": ["Booking"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier of the Booking",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Booking details",
+            "schema": {
+              "$ref": "#/definitions/Booking"
+            }
+          },
+          "404": {
+            "description": "Booking not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "put": {
+        "security": [{"Bearer": []}],
+        "description": "Update a Booking",
+        "tags": ["Booking"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier of the Booking to update",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Booking",
+            "in": "body",
+            "description": "Updated details of the Booking",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BookingInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Booking updated successfully",
+            "schema": {
+              "$ref": "#/definitions/Booking"
+            }
+          },
+          "404": {
+            "description": "Booking not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "delete": {
+        "security": [{"Bearer": []}],
+        "description": "Delete a Booking",
+        "tags": ["Booking"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier of the Booking to delete",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Booking deleted successfully"
+          },
+          "404": {
+            "description": "Booking not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
       }
     },
     "/auth/signup": {
@@ -161,6 +283,60 @@
         "password": {
           "type": "string",
           "description": "User's password"
+        }
+      }
+    },
+    "Booking": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Booking"
+        },
+        "userId": {
+          "type": "string",
+          "description": "User ID associated with the Booking"
+        },
+        "tripId": {
+          "type": "string",
+          "description": "Trip ID associated with the Booking"
+        },
+        "seatId": {
+          "type": "string",
+          "description": "Seat ID associated with the Booking"
+        },
+        "bookingDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp of the Booking"
+        },
+        "bookingStatus": {
+          "type": "string",
+          "enum": ["Confirmed", "Cancelled"],
+          "description": "Status of the Booking"
+        }
+      }
+    },
+    "BookingInput": {
+      "type": "object",
+      "required": ["userId", "tripId", "seatId", "bookingStatus"],
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "User ID associated with the Booking"
+        },
+        "tripId": {
+          "type": "string",
+          "description": "Trip ID associated with the Booking"
+        },
+        "seatId": {
+          "type": "string",
+          "description": "Seat ID associated with the Booking"
+        },
+        "bookingStatus": {
+          "type": "string",
+          "enum": ["Confirmed", "Cancelled"],
+          "description": "Status of the Booking"
         }
       }
     }
