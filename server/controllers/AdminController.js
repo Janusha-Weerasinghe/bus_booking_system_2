@@ -1,7 +1,7 @@
 const AdminService = require('../services/AdminService');
 const bus = require('../models/bus')
 
-const role = require ('../models/Role')
+const role = require ('../models/role')
 const user = require ('../models/user')
 const organization = require('../models/organization')
 

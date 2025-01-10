@@ -10,14 +10,25 @@ const trip = require('../models/trip');
 exports.getAllbookings = async () => {
     return await booking.find();
 };
+// exports.getAllbookings = async () => {
+//     try {
+//         const bookings = await booking.find();
+//         console.log('Bookings:', bookings); // Debug log
+//         return bookings;
+//     } catch (error) {
+//         console.error('Error fetching bookings:', error);
+//         throw error; // Let the controller handle it
+//     }
+// };
 
-// Get all bookings
-exports.getAllBookings = async () => {
-    return await booking.find()
-        .populate('userId', 'name email')  // Populate user info if needed
-        .populate('tripId', 'routeId busId departureTime')  // Populate trip details if needed
-        .populate('seatId', 'seatNumber');  // Populate seat details if needed
-};
+
+// // Get all bookings
+// exports.getAllBookings = async () => {
+//     return await booking.find()
+//         .populate('userId', 'name email')  // Populate user info if needed
+//         .populate('tripId', 'routeId busId departureTime')  // Populate trip details if needed
+//         .populate('seatId', 'seatNumber');  // Populate seat details if needed
+// };
 
 // Add a new booking
 exports.addBooking = async (bookingData) => {

@@ -9,6 +9,7 @@ const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
 const path = require('path');
 const serverless = require("serverless-http");
+const swaggerDoc = require("./docs/swagger.json")
 
 dotenv.config(); // Load environment variables
 
@@ -32,27 +33,31 @@ const userRoutes= require("./routes/userRoutes");
 //Add Middleware Path
 //const logger = require("./middlewares/logger");
 
-// swagger
-const swaggerDefinition = {
-  info: {
-    title: "System APIs",
-    version: "1.0.0",
-  },
-  host: "https://janusha-api-bus.netlify.app",
-  basePath: "/",
-};
+// // Swagger definition
+// const swaggerDefinition = {
+//   openapi: "3.0.0", // Use OpenAPI 3.0
+//   info: {
+//     title: "System APIs",
+//     version: "1.0.0",
+//     description: "API documentation for the System",
+//   },
+//   servers: [
+//     {
+//       url: "https://locallhost:8088", // Deployed URL
+//       description: "Deployed server",
+//     },
+//   ],
+// };
 
-// Options for swagger documentations
-const options = {
-  swaggerDefinition,
-  apis: ["./docs/**/*.yaml"],
-};
+// // Swagger options
+// const options = {
+//   swaggerDefinition,
+//   apis: ["./docs/**/*.yaml"], // Define your API documentation files
+// };
 
-// Initialize the swagger documentations
-const swaggerSpec = swaggerJsDoc(options);
-
-// Add Swagger
-app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec));
+// Generate Swagger documentation
+//const swaggerSpec = swaggerJsDoc(options);
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDoc));
 
 
 app.use(cors());
@@ -62,6 +67,10 @@ app.use(helmet());
 app.use(cookieParser());
 app.use(express.urlencoded({extended:true}));
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+//app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 app.use("/api/bus",busRoutes);
 app.use("/api/auth",authRouter);
 app.use("/api/booking",bookingRoutes);

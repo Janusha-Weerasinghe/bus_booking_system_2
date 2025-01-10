@@ -16,9 +16,9 @@ const userSchema = new mongoose.Schema({
     lowercase: true 
   },
   password: { type: String, required: [true,'Password is required!'] },
-  roleID: { type: mongoose.Schema.Types.ObjectId, ref: 'role', required: true },
+  roleID: { type: mongoose.Schema.Types.ObjectId, ref: 'Role', required: true },
   contactNumber: { type: String },
-  organizationRegisteredId: { type: mongoose.Schema.Types.ObjectId, ref: 'organization', required: function () { return this.roleID === 'operator'; } },
+  organizationRegisteredId: { type: mongoose.Schema.Types.ObjectId, ref: 'Organization', required: function () { return this.roleID === 'operator'; } },
   verified: { type: Boolean, default: false },
   verificationCode: { type: String, select: false },
   verificationCodeValidation: { type: Number, select: false },

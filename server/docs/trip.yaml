@@ -1,21 +1,21 @@
-# Security Definition for Bearer Token (JWT)
 securityDefinitions:
   BearerAuth:
     type: apiKey
     name: Authorization
     in: header
     description: "JWT Authorization using the Bearer scheme. Example: 'Authorization: Bearer {token}'"
-# Global Security Requirement (applied to all endpoints)
+
+     Global Security Requirement (applied to all endpoints)
 security:
   - BearerAuth: []
-  
-  paths:
+
+paths:
   /api/booking/trips:
     get:
-       summary: "Fetch all trips"
+      summary: "Fetch all trips"
       tags:
         - Trip
-          description: "Accessible to Admin, Operator, and Commuter roles."
+      description: "Accessible to Admin, Operator, and Commuter roles."
       responses:
         200:
           description: "List of all trips"
@@ -23,7 +23,7 @@ security:
             type: array
             items:
               $ref: "#/definitions/Trip"
-              403:
+        403:
           description: "Unauthorized or insufficient privileges"
         404:
           description: "No trips found"
@@ -31,7 +31,7 @@ security:
           description: "Server error"
 
     post:
-        summary: "Add a new trip"
+      summary: "Add a new trip"
       tags:
         - Trip
       parameters:
@@ -41,7 +41,6 @@ security:
           required: true
           schema:
             $ref: "#/definitions/TripInput"
-            
       responses:
         201:
           description: "Trip added successfully"
@@ -54,7 +53,7 @@ security:
 
   /api/booking/trips/{id}:
     get:
-      description: "Get trip details by trip ID"
+      summary: "Get trip details by trip ID"
       tags:
         - Trip
       parameters:
@@ -74,7 +73,7 @@ security:
           description: "Server error"
 
     put:
-      description: "Update a trip"
+      summary: "Update a trip"
       tags:
         - Trip
       parameters:
@@ -100,7 +99,7 @@ security:
           description: "Server error"
 
     delete:
-      description: "Delete a trip"
+      summary: "Delete a trip"
       tags:
         - Trip
       parameters:

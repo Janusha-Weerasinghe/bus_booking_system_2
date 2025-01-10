@@ -3,7 +3,12 @@
     publish = "public"
 
 [[redirects]]
-    from = "/api/*"
+    from = "/api-docs/*"
     to = "/.netlify/functions/app/:splat"
     status = 200
-    
+
+ [[redirects]]
+    from = "/api/*"
+    to = "/.netlify/functions/app/:splat"
+    status = 200   
+   

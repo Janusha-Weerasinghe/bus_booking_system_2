@@ -1,5 +1,6 @@
 const BookingService = require('../services/BookingService');
 const booking = require('../models/booking');
+const newBooking = require ('../models/booking');
 const payment = require('../models/payment');
 const seat = require('../models/seat');
 const trip = require('../models/trip');
@@ -37,7 +38,7 @@ exports.addBooking = async (req, res, next) => {
 // Get all bookings
 exports.getAllBookings = async (req, res) => {
     try {
-        const bookings = await BookingService.getAllBookings();
+        const bookings = await BookingService.getAllbookings();
         if (!bookings || bookings.length === 0) {
             return res.status(404).json({ success: false, message: "No bookings found" });
         }

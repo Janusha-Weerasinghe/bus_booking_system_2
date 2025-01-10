@@ -7,6 +7,7 @@ const jwt =require ('jsonwebtoken');
 const transtport = require('../middlewares/sendMail');
 const organization=require('../models/organization');
 const router = express.Router();
+const role = require('../models/role');
 
 
 exports.signup = async (req, res) => {

@@ -1,3 +1,16 @@
+"swagger":"2.0",
+"info": {
+  "title": "bus booking system",
+  "version": "1.0.0",
+  "description": "API documentation for the bus booking system"
+},
+"host" : "",
+"basePath": "/api",
+"schemas" : ["https"],
+"securityDefinitions" : {
+  "Bearer" :
+}
+
 paths:
   /api/booking/bookings:
     get:

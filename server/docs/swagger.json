@@ -1,0 +1,42 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Bus Booking System API",
+    "version": "1.0.0",
+    "description": "API Documentation for Bus Booking System"
+  },
+  "host": "localhost:8088",
+  "basePath": "/api",
+  "schemes": ["http"],
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+
+"description": "Enter your bearer token in the format: Bearer <token>"
+    }
+  },
+    "paths": {
+      "/booking/bookings": {
+        "get": {
+          "security": [{"Bearer": []}],
+          "description": "Fetch all Bookings",
+          "tags": [
+            "Booking"
+          ],
+          "responses": {
+            "200": {
+              "description": "List of all Bookings",
+              "schema": {
+                "type": "array"
+              }
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      }
+    }
+}
