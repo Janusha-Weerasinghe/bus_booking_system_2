@@ -32,27 +32,27 @@ const userRoutes= require("./routes/userRoutes");
 //Add Middleware Path
 //const logger = require("./middlewares/logger");
 
-// // swagger
-// const swaggerDefinition = {
-//   info: {
-//     title: "System APIs",
-//     version: "1.0.0",
-//   },
-//   host: "localhost:8088",
-//   basePath: "/",
-// };
+// swagger
+const swaggerDefinition = {
+  info: {
+    title: "System APIs",
+    version: "1.0.0",
+  },
+  host: "https://janusha-api-bus.netlify.app",
+  basePath: "/",
+};
 
-// // Options for swagger documentations
-// const options = {
-//   swaggerDefinition,
-//   apis: ["./docs/**/*.yaml"],
-// };
+// Options for swagger documentations
+const options = {
+  swaggerDefinition,
+  apis: ["./docs/**/*.yaml"],
+};
 
-// // Initialize the swagger documentations
-// const swaggerSpec = swaggerJsDoc(options);
+// Initialize the swagger documentations
+const swaggerSpec = swaggerJsDoc(options);
 
-// // Add Swagger
-// app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec));
+// Add Swagger
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 
 
 app.use(cors());
@@ -65,7 +65,7 @@ app.use(express.urlencoded({extended:true}));
 app.use("/api/bus",busRoutes);
 app.use("/api/auth",authRouter);
 app.use("/api/booking",bookingRoutes);
-app.use("/api/user", userRoutes);
+//app.use("/api/user", userRoutes);
 
 
 // // Check runing port

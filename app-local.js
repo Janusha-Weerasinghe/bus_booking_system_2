@@ -17,7 +17,7 @@ const swaggerDefinition = {
     title: "System APIs",
     version: "1.0.0",
   },
-  host: "https://janusha-api-bus.netlify.app",
+  host: "localhost:8088",
   basePath: "/",
 };
 

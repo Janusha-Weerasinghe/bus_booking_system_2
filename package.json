@@ -1,14 +1,14 @@
 {
-  "name": "backend",
+  "name": "bus_booking_system2",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "app.js",
   "directories": {
     "doc": "docs",
     "test": "tests"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "node app-local.js"
   },
   "keywords": [],
   "author": "",
